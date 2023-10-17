@@ -83,18 +83,3 @@ CREATE TABLE purchase_items(
       FOREIGN KEY(purchase_id)
       REFERENCES purchases(purchase_id)
 );
-
-CREATE VIEW gmv AS
-SELECT
-    pu.store_id,
-    pr.category_id,
-    SUM(pi.product_price * pi.product_count) AS sales_sum
-FROM
-    system.purchase_items pi
-JOIN
-    system.products pr ON pi.product_id = pr.product_id
-JOIN
-    system.purchases pu ON pi.purchase_id = pu.purchase_id
-GROUP BY
-    pu.store_id,
-    pr.category_id
