@@ -6,7 +6,7 @@
 4. Написан скрипт для подсчета GMV в виде view (createview.sql).
 
 # Как запустить
-1. docker-compose up --build
+1. sh docker-init.sh
 2. Добавить connection к db
    - user='postgres'
    - password='postgres'
